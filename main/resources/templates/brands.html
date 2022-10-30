@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto brands</title>
+</head>
+<body>
+<table cellspacing = "10">
+    <caption>Auto-Brands</caption>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>GasTank Capacity</th>
+        <th>Maximum load</th>
+        <th>Capacity</th>
+    </tr>
+    <tr th:each="brand : ${brands}">
+        <th th:text="${brand.getBrandName()}">value</th>
+        <th th:text="${brand.getVehicleType()}">value</th>
+        <th th:text="${brand.getGasTank()} + ' gal'">value</th>
+        <th th:text="${brand.getLoadCapacity()} + ' kg'">value</th>
+        <th th:text="${brand.getCapacity()} + ' people'">value</th>
+    </tr>
+</table>
+</body>
+</html>
