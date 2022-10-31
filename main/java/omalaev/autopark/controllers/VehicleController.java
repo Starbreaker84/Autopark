@@ -29,7 +29,7 @@ public class VehicleController {
 
     @ResponseBody
     @GetMapping("/list")
-    public List<Vehicle> getVehicle() {
+    public List<Vehicle> getVehicles() {
         return vehiclesService.findAll();
     }
 
