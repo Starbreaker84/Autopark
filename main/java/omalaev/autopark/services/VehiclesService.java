@@ -1,7 +1,9 @@
 package omalaev.autopark.services;
 
 import omalaev.autopark.models.Vehicle;
+
 import omalaev.autopark.repositories.VehiclesRepository;
+import omalaev.autopark.utils.VehicleNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +27,7 @@ public class VehiclesService {
 
     public Vehicle findOne(int id) {
         Optional<Vehicle> findVehicle = vehiclesRepository.findById(id);
-        return findVehicle.orElse(null);
+        return findVehicle.orElseThrow(VehicleNotFoundException::new);
     }
 
     @Transactional
@@ -36,6 +38,12 @@ public class VehiclesService {
     @Transactional
     public void save(Vehicle vehicle) {
         vehiclesRepository.save(vehicle);
+    }
+
+    @Transactional
+    public void update(int id, Vehicle updatedVehicle) {
+        updatedVehicle.setId(id);
+        vehiclesRepository.save(updatedVehicle);
     }
 
 

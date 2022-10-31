@@ -2,22 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit person</title>
+    <title>Edit vehicle</title>
 </head>
 <body>
 
-<form th:method="PATCH" th:action="@{/vehicles}" th:object="${vehicle}">
+<form th:method="PATCH" th:action="@{/vehicles/{id} (id=${vehicle.getId()})}" th:object="${vehicle}">
     <label for="year">Year:</label>
     <input type="text" th:field="*{year}" id="year" />
-    <div style="color:red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Name error</div>
     <br />
     <label for="mileage">Mileage:</label>
     <input type="text" th:field="*{mileage}" id="mileage" />
-    <div style="color:red" th:if="${#fields.hasErrors('mileage')}" th:errors="*{mileage}">Name error</div>
     <br />
     <label for="price">Price:</label>
     <input type="text" th:field="*{price}" id="price" />
-    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Name error</div>
     <br />
     <label for="brand">Brand:</label>
     <select th:object="${vehicle}" th:field="*{brand}" id="brand">

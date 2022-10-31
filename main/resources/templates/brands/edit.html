@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit brand</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/brands/{id} (id=${brand.getBrand_id()})}" th:object="${brand}">
+    <label for="name">Brand name:</label>
+    <input type="text" th:field="*{brandName}" id="name" />
+    <br />
+    <label for="type">Type:</label>
+    <input type="text" th:field="*{vehicleType}" id="type" />
+    <br />
+    <label for="gasTank">Gas tank capacity:</label>
+    <input type="text" th:field="*{gasTank}" id="gasTank" />
+    <br />
+    <label for="load">Maximum load:</label>
+    <input type="text" th:field="*{loadCapacity}" id="load" />
+    <br />
+    <label for="capacity">Passengers:</label>
+    <input type="text" th:field="*{capacity}" id="capacity" />
+    <br />
+    <input type="submit" value="Update"/>
+</form>
+
+</body>
+</html>

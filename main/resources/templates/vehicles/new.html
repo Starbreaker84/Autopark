@@ -13,11 +13,9 @@
     <br />
     <label for="mileage">Mileage:</label>
     <input type="text" th:field="*{mileage}" id="mileage" />
-    <div style="color:red" th:if="${#fields.hasErrors('mileage')}" th:errors="*{mileage}">Name error</div>
     <br />
     <label for="price">Price:</label>
     <input type="text" th:field="*{price}" id="price" />
-    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Name error</div>
     <br />
     <label for="brand">Brand:</label>
     <select th:object="${vehicle}" th:field="*{brand}" id="brand">

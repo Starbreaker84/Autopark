@@ -24,7 +24,23 @@ public class BrandService {
     }
 
     public Brand findOne(int id) {
-        Optional<Brand> findedBrand = brandRepository.findById(id);
-        return findedBrand.orElse(null);
+        Optional<Brand> findBrand = brandRepository.findById(id);
+        return findBrand.orElse(null);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        brandRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void save(Brand brand) {
+        brandRepository.save(brand);
+    }
+
+    @Transactional
+    public void update(int id, Brand updatedBrand) {
+        updatedBrand.setBrand_id(id);
+        brandRepository.save(updatedBrand);
     }
 }

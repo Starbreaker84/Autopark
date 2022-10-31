@@ -1,7 +1,6 @@
 package omalaev.autopark.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "brand")
@@ -22,9 +21,6 @@ public class Brand {
 
     @Column(name = "capacity")
     private int capacity;
-
-    @OneToMany(mappedBy = "brand")
-    private List<Vehicle> vehicles;
 
     public int getBrand_id() {
         return brand_id;
@@ -72,14 +68,6 @@ public class Brand {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
-    }
-
-    public List<Vehicle> getVehicles() {
-        return vehicles;
-    }
-
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
     }
     public Brand() {
 

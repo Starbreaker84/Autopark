@@ -12,14 +12,11 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "year")
-    @NotEmpty
     @Min(value = 1900, message = "Year should be greater than 1900!")
     private int year;
     @Column(name = "mileage")
-    @NotEmpty
     private int mileage;
     @Column(name = "price")
-    @NotEmpty
     @Min(value = 0, message = "Price should be greater than zero!")
     private int price;
 
