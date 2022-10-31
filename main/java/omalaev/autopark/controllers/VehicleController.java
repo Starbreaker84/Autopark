@@ -29,13 +29,13 @@ public class VehicleController {
 
     @ResponseBody
     @GetMapping("/list")
-    public List<Vehicle> getVehicles() {
+    public List<Vehicle> getVehicle() {
         return vehiclesService.findAll();
     }
 
     @ResponseBody
     @GetMapping("/list/{id}")
-    public Vehicle getVehicles(@PathVariable("id") int id) {
+    public Vehicle getVehicle(@PathVariable("id") int id) {
         return vehiclesService.findOne(id);
     }
 
