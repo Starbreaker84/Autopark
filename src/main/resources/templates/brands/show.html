@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Person</title>
+</head>
+<body>
+
+<table cellspacing = "10">
+  <caption>Auto-Brand</caption>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>GasTank Capacity</th>
+    <th>Maximum load</th>
+    <th>Capacity</th>
+  </tr>
+  <tr>
+    <th th:text="${brand.getBrandName()}">VALUE</th>
+    <th th:text="${brand.getVehicleType()}">VALUE</th>
+    <th th:text="${brand.getGasTank()} + ' gal'">VALUE</th>
+    <th th:text="${brand.getLoadCapacity()} + ' kg'">VALUE</th>
+    <th th:text="${brand.getCapacity()} + ' people'">VALUE</th>
+  </tr>
+</table>
+<hr/>
+<form th:method="GET" th:action="@{/brands/{id}/edit (id=${brand.getBrand_id()}) }">
+  <input type="submit" value="Edit" />
+</form>
+
+<form th:method="DELETE" th:action="@{/brands/{id}(id=${brand.getBrand_id()}) }">
+  <input type="submit" value="Delete" />
+</form>
+</body>
+</html>
